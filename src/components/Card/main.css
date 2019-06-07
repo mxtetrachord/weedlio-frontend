@@ -5,7 +5,7 @@
   border: 1px #444 solid;
   border-radius: 5px;
   position: relative;
-  height: 15vh;
+  height: 25vh;
   color: black;
 }
 
@@ -57,9 +57,13 @@
   top: 3.75rem;
   left: 0;
   box-sizing: border-box;
-  padding: 0.5rem 2rem;
   display: flex;
-  align-items: center;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.card-content > div {
+  width: 100%;
 }
 
 @media (max-width: 600px) {

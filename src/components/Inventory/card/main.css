@@ -1,0 +1,24 @@
+.inventory-card input,
+.inventory-card button {
+  height: 30px;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  border: 1px #999 solid;
+}
+
+.inventory-card input {
+  width: 40%;
+}
+
+.inventory-card button {
+  background: linear-gradient(90deg, #9c88ff, #487eb0);
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .inventory-card .list-item:first-child {
+    display: none;
+  }
+}
+

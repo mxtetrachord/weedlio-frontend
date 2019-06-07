@@ -1,4 +1,4 @@
-import { combineReducers, Reducer, Store } from 'redux'
+import { combineReducers, Reducer } from 'redux'
 
 import controls, { ControlsState } from './controls'
 import inventory, { InventoryState } from './inventory'
@@ -8,6 +8,7 @@ export type StoreState = {
   inventory: InventoryState
 }
 
-const rootReducer: Reducer<StoreState> = combineReducers<StoreState>({ controls, inventory })
+const rootReducer: Reducer<StoreState> = 
+  combineReducers<StoreState>({ controls, inventory })
 
 export default rootReducer

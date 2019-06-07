@@ -5,12 +5,11 @@ import './main.css'
 
 type CardProps = {
   header: string,
-  children: JSX.Element,
   fullwidth?: boolean
 }
 
-export const Card: React.FC<CardProps> = ({ header, children, fullwidth }: CardProps) =>
-  <div className={`card ${fullwidth ? 'fullwidth' : ''}`}>
+export const Card: React.FC<CardProps> = ({ header, children, fullwidth }) =>
+  <div className={`card ${header}-card ${fullwidth ? 'fullwidth' : ''}`}>
     <Link to={`/${header}`}>
       <div className={`card-header ${header}`}>
         <h3>{ header }</h3>
