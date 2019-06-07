@@ -9,7 +9,7 @@ type CardProps = {
   fullwidth?: boolean
 }
 
-export const Card = ({ header, children, fullwidth }: CardProps) => 
+export const Card: React.FC<CardProps> = ({ header, children, fullwidth }: CardProps) =>
   <div className={`card ${fullwidth ? 'fullwidth' : ''}`}>
     <Link to={`/${header}`}>
       <div className={`card-header ${header}`}>
@@ -23,4 +23,3 @@ export const Card = ({ header, children, fullwidth }: CardProps) =>
   </div>
 
 export default Card
-
