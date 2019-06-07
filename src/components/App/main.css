@@ -1,0 +1,93 @@
+.app-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.app-container.dark {
+  background-color: #333;
+  color: white;
+}
+
+.app {
+  height: 100%;
+  position: relative;
+}
+
+.app .title-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0.75rem;
+}
+
+.app .content {
+  position: absolute;
+  top: 120px;
+  left: 0px;
+  width: 100%;
+}
+
+.app .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (min-width: 320px) {
+  .app {
+    width: 300px;
+  }
+}
+
+@media (min-width: 500px) {
+  .app {
+    width: 450px;
+  }
+}
+
+@media (min-width: 600px) {
+  .app {
+    width: 550px;
+  }
+}
+
+@media (min-width: 700px) {
+  .app {
+    width: 650px;
+  }
+}
+
+@media (min-width: 800px) {
+  .app {
+    width: 700px;
+  }
+}
+
+@media (min-width: 950px) {
+  .app {
+    width: 850px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app {
+    width: 900px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .app {
+    width: 1400px;
+  }
+}
