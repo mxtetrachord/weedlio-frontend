@@ -16,6 +16,10 @@
   color: white;
 }
 
+.inventory-card .list-item .left p {
+  margin-right: 0.25rem;
+} 
+
 @media (max-width: 800px) {
   .inventory-card .list-item:first-child {
     display: none;

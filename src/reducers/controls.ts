@@ -9,7 +9,7 @@ const defaultState: ControlsState = {
   hotkeys: []
 }
 
-export function controls(state = defaultState, { type, payload }: Action) {
+export function controls(state = defaultState, { type, payload }: Action<any>) {
   return state
 }
 

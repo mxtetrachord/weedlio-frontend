@@ -8,3 +8,35 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.list-item div.left,
+.list-item div.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.list-item div.left *,
+.list-item div.right * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.list-item div.right .img-container {
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.list-item div.right img {
+  height: 20px;
+}
+
+.list-item div.right .img-container:hover {
+  background: linear-gradient(90deg, #ff6b81, #ff6348);
+}

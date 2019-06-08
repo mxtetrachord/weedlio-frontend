@@ -1,52 +1,85 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { StoreState } from '../../../reducers/'
 import Card from '../../Card/'
 import ListItem from '../../ListItem/'
-import { InventoryState } from '../../../reducers/inventory';
+import { addStrain, deleteStrain } from '../../../actions/'
 
+import { InventoryState } from '../../../reducers/inventory';
+import { StoreState } from '../../../reducers/'
+import { Action } from '../../../types/redux'
+import { Strain } from '../../../types/cannabis'
+
+import trashcan from '../../../images/trashcan.png'
 import './main.css'
 
-type InventoryCardProps = InventoryState
+type InventoryCardProps = InventoryState & {
+  addStrain: (arg0: Strain) => Action<Strain>,
+  deleteStrain: (arg0: Strain) => Action<Strain>
+}
+
 type InventoryCardState = { 
-  manufacturer: string,
-  strain: string
+  strain: string,
+  manufacturer: string
 }
 
 export class InventoryCard extends Component<InventoryCardProps, InventoryCardState> {
-  constructor(props: InventoryState) {
-    super(props)
-    this.state = { manufacturer: '', strain: '' }
-    this.update = this.update.bind(this)
+  readonly state = { 
+    manufacturer: '', 
+    strain: ''
   }
 
-  update(name: keyof InventoryCardState) {
-    return ({ target }: React.FormEvent<HTMLInputElement>) =>
-      this.setState({ [name]: target.value })
+  update = (name: keyof InventoryCardState) =>
+    (event: React.ChangeEvent<HTMLInputElement>) =>
+      this.setState({ ...this.state, [name]: event.target.value })
+
+  add = () => {
+    this.props.addStrain(this.state)
+    this.setState({ manufacturer: '', strain: '' })
   }
 
   render() {
-    const { update } = this
+    const { update, add } = this
+    const { manufacturer, strain } = this.state
+
+    const strains = this.props.strains.map(
+      (record: Strain) => (
+        <ListItem key={record.id}>
+          <div className='left'>
+            <p className='muted-text'>{record.manufacturer}</p>
+            <p>{record.strain}</p>
+          </div>
+
+          <div className='right'>
+            <div className='img-container'>
+              <img src={trashcan}
+                alt='delete'
+                role='button'
+                onClick={() => this.props.deleteStrain(record)}/>
+            </div>
+          </div>
+        </ListItem>
+      )
+    )
 
     return (
       <Card header='inventory'>
         <div>
           <ListItem>
             <input type='text'
+              value={manufacturer}
               onChange={update('manufacturer')}
               placeholder='manufacturer' />
 
             <input type='text'
+              value={strain}
               onChange={update('strain')}
               placeholder='strain' />
 
-            <button>add</button>
+            <button onClick={add}>add</button>
           </ListItem>
-    
-          <ListItem>
-            <p>liberty critical jack</p>
-          </ListItem>
+
+          { strains }
         </div>
       </Card>
     )
@@ -54,5 +87,6 @@ export class InventoryCard extends Component<InventoryCardProps, InventoryCardSt
 }
 
 export default connect(
-  (state: StoreState) => state.inventory
+  (state: StoreState) => state.inventory,
+  { addStrain, deleteStrain }
 )(InventoryCard)

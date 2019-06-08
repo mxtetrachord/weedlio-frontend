@@ -1,6 +1,9 @@
+import * as uuid from 'uuid'
+
 export type Strain = {
   strain: string,
-  manufacturer: string
+  manufacturer: string,
+  id?: string
 }
 
 export type Method = 
