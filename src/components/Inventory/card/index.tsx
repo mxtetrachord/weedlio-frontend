@@ -78,8 +78,10 @@ export class InventoryCard extends Component<InventoryCardProps, InventoryCardSt
 
             <button onClick={add}>add</button>
           </ListItem>
-
-          { strains }
+          
+          <div className='scroll'>
+            { strains }
+          </div>
         </div>
       </Card>
     )

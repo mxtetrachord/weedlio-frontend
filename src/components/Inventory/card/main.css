@@ -1,10 +1,5 @@
-.inventory-card input,
-.inventory-card button {
-  height: 30px;
-  box-sizing: border-box;
-  padding: 0 0.5rem;
-  border-radius: 5px;
-  border: 1px #999 solid;
+.inventory-card .scroll {
+  height: calc(100% - 50px);
 }
 
 .inventory-card input {

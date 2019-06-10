@@ -2,22 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Journal from '../Journal/'
 import Controls from '../Controls/'
-import Card from '../Card/'
-
+import JournalCard from '../Journal/card'
 import InventoryCard from '../Inventory/card'
 import ControlsCard from '../Controls/card'
 import './main.css'
 
 const cardContainer = () =>
   <div className='content card-container'>
-    <Journal />
     <ControlsCard />
     <InventoryCard />
-    <Card fullwidth header='idfk'>
-      <p>i don't fuckin know, like a graph or something?</p>
-    </Card>
+    <JournalCard />
   </div>
 
 export const App = () =>
